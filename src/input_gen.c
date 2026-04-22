@@ -5,7 +5,7 @@
 
 #include "../include/input_gen.h"
 
-#define VARIANCE 11
+#define VARIANCE 10
 
 unsigned int* arrayGen(int n)
 {
@@ -16,7 +16,7 @@ unsigned int* arrayGen(int n)
     }
 
     for (int i = 0; i < n; i++) {
-        arr[i] = prev + rand() % VARIANCE; // Randomized so each number will be a random number bigger than the previous, based on variance
+        arr[i] = prev + 1 + rand() % VARIANCE; // Randomized so each number will be a random number bigger than the previous, based on variance
         prev = arr[i];
     }
     return arr;

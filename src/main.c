@@ -12,7 +12,7 @@ void printArray(unsigned int arr[], int n);
 int main(void)
 {
     srand(time(NULL)); // Seed random generation
-    int n = 10; // Size of arrays
+    int n = 1000; // Size of arrays
     int count; // To count basic operations
     int size = sizeof(unsigned int) * n; // Size of the arrays
 
@@ -42,21 +42,17 @@ int main(void)
         exit(1);
     }
 
-    // Test sorting
-    //Create copies of all the arrays so all algorithms sort the same arrays
-
-
-
     printf("SORTING ALGORITHM TESTING\n");
-    printf("Starting arrays:\n\n");
-    printf("Ordered:\n");
-    printArray(ord, n);
-    printf("Reverse:\n");
-    printArray(rev, n);
-    printf("Random:\n");
-    printArray(rand, n);
-    printf("Almost ordered:\n");
-    printArray(almOrd, n);
+    // Commented out printing of arrays when running large arrays
+    // printf("Starting arrays:\n\n");
+    // printf("Ordered:\n");
+    // printArray(ord, n);
+    // printf("Reverse:\n");
+    // printArray(rev, n);
+    // printf("Random:\n");
+    // printArray(rand, n);
+    // printf("Almost ordered:\n");
+    // printArray(almOrd, n);
 
     printf("\n---BUBBLE SORT---\n");
     // Create copies of arrays for bubble sort
@@ -72,19 +68,19 @@ int main(void)
     count = 0;
     bubbleSort(bubbleOrd, n, &count);
     printf("Ordered sorted in %d operations:\n", count);
-    printArray(bubbleOrd, n);
+    // printArray(bubbleOrd, n);
     count = 0;
     bubbleSort(bubbleRev, n, &count);
     printf("Reversed sorted in %d operations:\n", count);
-    printArray(bubbleRev, n);
+    // printArray(bubbleRev, n);
     count = 0;
     bubbleSort(bubbleRand, n, &count);
     printf("Randomized sorted in %d operations:\n", count);
-    printArray(bubbleRand, n);
+    // printArray(bubbleRand, n);
     count = 0;
     bubbleSort(bubbleAlmOrd, n, &count);
     printf("Almost ordered sorted in %d operations:\n", count);
-    printArray(bubbleAlmOrd, n);
+    // printArray(bubbleAlmOrd, n);
 
     printf("\n---INSERTION SORT---\n");
     // Create copies of arrays for insertion sort
@@ -100,19 +96,19 @@ int main(void)
     count = 0;
     insertionSort(bubbleOrd, n, &count);
     printf("Ordered sorted in %d operations:\n", count);
-    printArray(insertionOrd, n);
+    // printArray(insertionOrd, n);
     count = 0;
     insertionSort(insertionRev, n, &count);
     printf("Reversed sorted in %d operations:\n", count);
-    printArray(insertionRev, n);
+    // printArray(insertionRev, n);
     count = 0;
     insertionSort(insertionRand, n, &count);
     printf("Randomized sorted in %d operations:\n", count);
-    printArray(insertionRand, n);
+    // printArray(insertionRand, n);
     count = 0;
     insertionSort(insertionAlmOrd, n, &count);
     printf("Almost ordered sorted in %d operations:\n", count);
-    printArray(insertionAlmOrd, n);
+    // printArray(insertionAlmOrd, n);
 
     printf("\n---QUICKSORT---\n");
     // Create copies of arrays for quicksort
@@ -129,19 +125,19 @@ int main(void)
     count = 0;
     quickSort(quickOrd, n, &count);
     printf("Ordered sorted in %d operations:\n", count);
-    printArray(quickOrd, n);
+    // printArray(quickOrd, n);
     count = 0;
     quickSort(quickRev, n, &count);
     printf("Reversed sorted in %d operations:\n", count);
-    printArray(quickRev, n);
+    // printArray(quickRev, n);
     count = 0;
     quickSort(quickRand, n, &count);
     printf("Randomized sorted in %d operations:\n", count);
-    printArray(quickRand, n);
+    // printArray(quickRand, n);
     count = 0;
     quickSort(quickAlmOrd, n, &count);
     printf("Almost ordered sorted in %d operations:\n", count);
-    printArray(quickAlmOrd, n);
+    // printArray(quickAlmOrd, n);
 }
 
 void printArray(unsigned int arr[], int n)

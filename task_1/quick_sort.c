@@ -11,7 +11,7 @@ static int hoarePartition(unsigned int arr[], int l, int r)
         do { j--; } while (arr[j] > p);
 
         unsigned int temp = arr[i];
-        arr [i] = arr[j];
+        arr[i] = arr[j];
         arr[j] = temp;
 
     } while (i < j);

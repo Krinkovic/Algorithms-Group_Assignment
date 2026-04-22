@@ -25,9 +25,12 @@ void insertionSort(unsigned int arr[], int n, int *op)
 
         // Shift elements right until correct postion found
         while (j >= 0 && arr[j] > v) {
+            (*op)++; // Counting the basic operation: the while loop runs
             arr[j + 1] = arr[j];
             j--;
-            (*op)++; // Counting the basic operation: the while loop runs
+        }
+        if (j >= 0) {
+            (*op)++; // Counting the basic operation: the while loop does not run
         }
         arr[j + 1] = v; // Insert the element at its correct position
     }
@@ -41,28 +44,28 @@ static int hoarePartition(unsigned int arr[], int l, int r, int *op)
 
     do {
         do {
-            j++;
-            (*op)++; // Counting the basic operation: each comparison with pivot
-        } while (arr[j] < p);
-        do {
             i++;
             (*op)++; // Counting the basic operation: each comparison with pivot
-        } while (arr[i] > p);
+        } while (arr[i] < p);
+        do {
+            j--;
+            (*op)++; // Counting the basic operation: each comparison with pivot
+        } while (arr[j] > p);
 
         unsigned int temp = arr[i];
-        arr [i] = arr[j];
+        arr[i] = arr[j];
         arr[j] = temp;
 
     } while (i < j);
 
     // Undo the last swap
-    unsigned int temp = arr[l];
-    arr[l] = arr[j];
+    unsigned int temp = arr[i];
+    arr[i] = arr[j];
     arr[j] = temp;
 
     // Move pivot to its correct position
-    temp = arr[i];
-    arr[i] = arr[j];
+    temp = arr[l];
+    arr[l] = arr[j];
     arr[j] = temp;
 
     return j;
