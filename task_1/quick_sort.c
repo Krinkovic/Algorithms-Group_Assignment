@@ -24,10 +24,10 @@ static int HoarePartition(unsigned int arr[], int l, int r)
     int j = r + 1;
 
     do {
-        do { i++; } while (arr[i] < p); 
+        do { i++; } while (arr[i] < p);
         do { j--; } while (arr[j] > p);
-        
-        unsigned int temp = arr[i]; 
+
+        unsigned int temp = arr[i];
         arr [i] = arr[j];
         arr[j] = temp;
 
@@ -43,7 +43,7 @@ static int HoarePartition(unsigned int arr[], int l, int r)
     arr[l] = arr[j];
     arr[j] = temp;
 
-    return j; 
+    return j;
 }
 
 // Sorts arr of n elements
@@ -62,4 +62,3 @@ void QuickSort(unsigned int arr [], int n)
 {
     QuickSortHelper(arr, 0, n - 1);
 }
-
