@@ -24,8 +24,8 @@ static int HoarePartition(unsigned int arr[], int l, int r)
     int j = r + 1;
 
     do {
-        do { j++; } while (arr[j] < p); 
-        do { i++; } while (arr[i] > p);
+        do { i++; } while (arr[i] < p); 
+        do { j--; } while (arr[j] > p);
         
         unsigned int temp = arr[i]; 
         arr [i] = arr[j];
@@ -34,14 +34,14 @@ static int HoarePartition(unsigned int arr[], int l, int r)
     } while (i < j);
 
     // Undo the last swap
-    unsigned int temp = arr[l];
-    arr[l] = arr[j];
+    unsigned int temp = arr[i];
+    arr[i] = arr[j];
     arr[j] = temp;
 
     // Move pivot to its correct position
-    tmp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = tmp;
+    temp = arr[l];
+    arr[l] = arr[j];
+    arr[j] = temp;
 
     return j; 
 }
