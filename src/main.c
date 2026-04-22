@@ -44,41 +44,8 @@ int main(void)
 
     // Test sorting
     //Create copies of all the arrays so all algorithms sort the same arrays
-    unsigned int *bubbleOrd = malloc(size);
-    bubbleOrd = memcpy(bubbleOrd, ord, size);
 
-    unsigned int *bubbleRev = malloc(size);
-    bubbleRev = memcpy(bubbleRev, rev, size);
 
-    unsigned int *bubbleRand = malloc(size);
-    bubbleRand = memcpy(bubbleRand, rand, size);
-
-    unsigned int *bubbleAlmOrd = malloc(size);
-    bubbleAlmOrd = memcpy(bubbleAlmOrd, almOrd, size);
-
-    unsigned int *insertionOrd = malloc(size);
-    insertionOrd = memcpy(insertionOrd, ord, size);
-
-    unsigned int *insertionRev = malloc(size);
-    insertionRev = memcpy(insertionRev, rev, size);
-
-    unsigned int *insertionRand = malloc(size);
-    insertionRand = memcpy(insertionRand, rand, size);
-
-    unsigned int *insertionAlmOrd = malloc(size);
-    insertionAlmOrd = memcpy(insertionAlmOrd, almOrd, size);
-
-    unsigned int *quickOrd = malloc(size);
-    quickOrd = memcpy(quickOrd, ord, size);
-
-    unsigned int *quickRev = malloc(size);
-    quickRev = memcpy(quickRev, rev, size);
-
-    unsigned int *quickRand = malloc(size);
-    quickRand = memcpy(quickRand, rand, size);
-
-    unsigned int *quickAlmOrd = malloc(size);
-    quickAlmOrd = memcpy(quickAlmOrd, almOrd, size);
 
     printf("SORTING ALGORITHM TESTING\n");
     printf("Starting arrays:\n\n");
@@ -92,6 +59,16 @@ int main(void)
     printArray(almOrd, n);
 
     printf("\n---BUBBLE SORT---\n");
+    // Create copies of arrays for bubble sort
+    unsigned int *bubbleOrd = malloc(size);
+    memcpy(bubbleOrd, ord, size);
+    unsigned int *bubbleRev = malloc(size);
+    memcpy(bubbleRev, rev, size);
+    unsigned int *bubbleRand = malloc(size);
+    memcpy(bubbleRand, rand, size);
+    unsigned int *bubbleAlmOrd = malloc(size);
+    memcpy(bubbleAlmOrd, almOrd, size);
+
     count = 0;
     bubbleSort(bubbleOrd, n, &count);
     printf("Ordered sorted in %d operations:\n", count);
@@ -108,6 +85,63 @@ int main(void)
     bubbleSort(bubbleAlmOrd, n, &count);
     printf("Almost ordered sorted in %d operations:\n", count);
     printArray(bubbleAlmOrd, n);
+
+    printf("\n---INSERTION SORT---\n");
+    // Create copies of arrays for insertion sort
+    unsigned int *insertionOrd = malloc(size);
+    memcpy(insertionOrd, ord, size);
+    unsigned int *insertionRev = malloc(size);
+    memcpy(insertionRev, rev, size);
+    unsigned int *insertionRand = malloc(size);
+    memcpy(insertionRand, rand, size);
+    unsigned int *insertionAlmOrd = malloc(size);
+    memcpy(insertionAlmOrd, almOrd, size);
+
+    count = 0;
+    insertionSort(bubbleOrd, n, &count);
+    printf("Ordered sorted in %d operations:\n", count);
+    printArray(insertionOrd, n);
+    count = 0;
+    insertionSort(insertionRev, n, &count);
+    printf("Reversed sorted in %d operations:\n", count);
+    printArray(insertionRev, n);
+    count = 0;
+    insertionSort(insertionRand, n, &count);
+    printf("Randomized sorted in %d operations:\n", count);
+    printArray(insertionRand, n);
+    count = 0;
+    insertionSort(insertionAlmOrd, n, &count);
+    printf("Almost ordered sorted in %d operations:\n", count);
+    printArray(insertionAlmOrd, n);
+
+    printf("\n---QUICKSORT---\n");
+    // Create copies of arrays for quicksort
+    unsigned int *quickOrd = malloc(size);
+    memcpy(quickOrd, ord, size);
+    unsigned int *quickRev = malloc(size);
+    memcpy(quickRev, rev, size);
+    unsigned int *quickRand = malloc(size);
+    memcpy(quickRand, rand, size);
+    unsigned int *quickAlmOrd = malloc(size);
+    memcpy(quickAlmOrd, almOrd, size);
+
+
+    count = 0;
+    quickSort(quickOrd, n, &count);
+    printf("Ordered sorted in %d operations:\n", count);
+    printArray(quickOrd, n);
+    count = 0;
+    quickSort(quickRev, n, &count);
+    printf("Reversed sorted in %d operations:\n", count);
+    printArray(quickRev, n);
+    count = 0;
+    quickSort(quickRand, n, &count);
+    printf("Randomized sorted in %d operations:\n", count);
+    printArray(quickRand, n);
+    count = 0;
+    quickSort(quickAlmOrd, n, &count);
+    printf("Almost ordered sorted in %d operations:\n", count);
+    printArray(quickAlmOrd, n);
 }
 
 void printArray(unsigned int arr[], int n)
