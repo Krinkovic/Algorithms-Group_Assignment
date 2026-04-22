@@ -1,5 +1,6 @@
 // Kristoffer & Abdulsalam
 
+#include <stdio.h>
 #include "../include/sorting.h"
 
 void bubbleSort(unsigned int arr[], int n, int *op)
@@ -10,8 +11,8 @@ void bubbleSort(unsigned int arr[], int n, int *op)
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
-            (*op)++; // Counting the basic operation: the if statement
             }
+            (*op)++; // Counting the basic operation: the if statement
         }
     }
 }
