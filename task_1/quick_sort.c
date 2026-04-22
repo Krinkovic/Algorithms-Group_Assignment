@@ -1,23 +1,6 @@
 // 2026 Abdulsalam & Kristoffer
 
-#include <stdio.h>
-
-void QuickSort(unsigned int arr[], int n);
-static int HoarePartition(unsigned int arr[], int l, int r);
-
-int main(void) // For testing
-{
-    unsigned int arr[] = {6, 3, 9, 10, 1, 5};
-    int n = 6;
-    QuickSort(arr, n);
-    printf("sorted numbers:\n");
-    for (int i = 0; i < n; i++) {
-        printf("%u\n", arr[i]);
-    }
-    return 0;
-}
-
-static int HoarePartition(unsigned int arr[], int l, int r)
+static int hoarePartition(unsigned int arr[], int l, int r)
 {
     unsigned int p = arr[l]; // Choose the first element as pivot
     int i = l;
@@ -47,18 +30,31 @@ static int HoarePartition(unsigned int arr[], int l, int r)
 }
 
 // Sorts arr of n elements
-static void QuickSortHelper(unsigned int arr[], int l, int r)
+static void quickSortHelper(unsigned int arr[], int l, int r)
 {
     if (l < r) {
-        int s = HoarePartition(arr, l, r);
-        QuickSortHelper(arr, l, s - 1);
-        QuickSortHelper(arr, s + 1, r);
+        int s = hoarePartition(arr, l, r);
+        quickSortHelper(arr, l, s - 1);
+        quickSortHelper(arr, s + 1, r);
 
     }
 }
 
 
-void QuickSort(unsigned int arr [], int n)
+void quickSort(unsigned int arr [], int n)
 {
-    QuickSortHelper(arr, 0, n - 1);
+    quickSortHelper(arr, 0, n - 1);
 }
+
+// #include <stdio.h>
+// int main(void) // For testing
+// {
+//     unsigned int arr[] = {6, 3, 9, 10, 1, 5};
+//     int n = 6;
+//     QuickSort(arr, n);
+//     printf("sorted numbers:\n");
+//     for (int i = 0; i < n; i++) {
+//         printf("%u\n", arr[i]);
+//     }
+//     return 0;
+// }
