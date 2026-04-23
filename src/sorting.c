@@ -1,6 +1,5 @@
 // Kristoffer & Abdulsalam
 
-#include <stdio.h>
 #include "../include/sorting.h"
 
 void bubbleSort(unsigned int arr[], int n, int *op)
