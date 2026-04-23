@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #include "../include/input_gen.h"
 
@@ -22,28 +23,28 @@ unsigned int* arrayGen(int n)
     return arr;
 }
 
-unsigned int* reverse(unsigned int arr[], int n)
+void reverse(unsigned int arr[], int n)
 {
     unsigned int * rev = malloc(sizeof(unsigned int) * n);
     for (int i = 0; i < n; i++) {
         rev[i] = arr[n - 1 - i];
     }
-    return rev;
+    memcpy(arr, rev, n);
+    free(rev);
 }
 
-unsigned int* randomized(unsigned int arr[], int n)
+void randomized(unsigned int arr[], int n)
 {
     for (size_t i = n - 1; i > 0; i--) {
 
         size_t j = rand() % (i + 1); // Generate random index between 0 and i
-        int temp = arr[i]; // Swap array[i] and array[j]
+        unsigned int temp = arr[i]; // Swap array[i] and array[j]
         arr[i] = arr[j];
         arr[j] = temp;
     }
-    return arr;
 }
 
-unsigned int* almost_ordered(unsigned int arr[], int n)
+void almost_ordered(unsigned int arr[], int n)
 {
     int swaps = n / 100 * 4 / 2;
     if (swaps == 0) swaps = 1;
@@ -58,36 +59,4 @@ unsigned int* almost_ordered(unsigned int arr[], int n)
         arr[i1] = arr[i2];
         arr[i2] = temp;
     }
-    return arr;
 }
-
-// #include <stdio.h>
-// int main(void) // For testing
-// {
-    // int n = 100;
-    // unsigned int* arr1 = ordered(n);
-    // unsigned int* arr2 = reverse(n);
-    // unsigned int* arr3 = randomized(n);
-    // unsigned int* arr4 = almost_ordered(n);
-
-    // puts("Ordered:");
-    // for (int i = 0; i < n; i++) {
-    //     printf("%d\n", arr1[i]);
-    // }
-    // puts("Reverse:");
-    // for (int i = 0; i < n; i++) {
-    //     printf("%d\n", arr2[i]);
-    // }
-    // puts("Randomized:");
-    // for (int i = 0; i < n; i++) {
-    //     printf("%d\n", arr3[i]);
-    // }
-    // puts("Almost ordered:");
-    // for (int i = 0; i < n; i++) {
-    //     printf("%d\n", arr4[i]);
-    // }
-    // free(arr1);
-    // free(arr2);
-    // free(arr3);
-    // free(arr4);
-// }
